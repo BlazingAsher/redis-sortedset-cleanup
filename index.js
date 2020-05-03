@@ -24,8 +24,9 @@ client.on("ready", function () {
             client.zremrangebyscore([key, '-inf', Date.now()], function(err, res){
                 if(err) console.error(err);
 
-                if(res) console.log(`Remove ${res} keys from ${key}`);
+                if(res) console.log(`Removed ${res} keys from ${key}.`);
             });
         }
+        console.log("Done.");
     })
 });
