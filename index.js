@@ -21,7 +21,11 @@ client.on("ready", function () {
         if(err) console.log(err);
         console.log(matchingKeys);
         for(let key of matchingKeys){
-            client.zremrangebyscore([key, '-inf', Date.now()]);
+            client.zremrangebyscore([key, '-inf', Date.now()], function(err, res){
+                if(err) console.error(err);
+
+                if(res) console.log(`Remove ${res} keys from ${key}`);
+            });
         }
     })
 });
