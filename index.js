@@ -27,6 +27,7 @@ client.on("ready", function () {
                 if(res) console.log(`Removed ${res} keys from ${key}.`);
             });
         }
+        client.quit();
         console.log("Done.");
     })
 });
