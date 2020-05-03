@@ -21,7 +21,7 @@ client.on("ready", function () {
         if(err) console.log(err);
         console.log(matchingKeys);
         for(let key of matchingKeys){
-            client.zremrangebyscore([key, '-inf', Date.now()], function(err, res){
+            client.zremrangebyscore([key, '-inf', Date.now()-process.env.EXPIRE_TIME], function(err, res){
                 if(err) console.error(err);
 
                 if(res) console.log(`Removed ${res} keys from ${key}.`);
